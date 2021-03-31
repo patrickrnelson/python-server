@@ -7,17 +7,19 @@ app = Flask(__name__)
 
 # Connect to your postgres DB
 conn = psycopg2.connect(
+  # Change this info to fit your DB
   """
   dbname=python-db
   host=localhost
   user=patricknelson
   port=5432
   """
-)
+) 
 
 # Open a cursor to perform database operations
 cur = conn.cursor()
 
+### Static Data for local requests
 # consoles = [{
 #   'name': 'Xbox Series X',
 #   'id': 0,
@@ -41,9 +43,7 @@ cur = conn.cursor()
 #   'price': "$500 USD"
 # }]
 
-# Read the swagger.yml file to configure the endpoints
-# app.add_api('swagger.yml')
-
+## DB GET Route
 @app.route('/allconsoles', methods=['GET'])
 def get_all_consoles():
   # conn = None
@@ -64,6 +64,7 @@ def get_all_consoles():
   #   if conn is not None:
   #     conn.close()
 
+## DB PUT route
 @app.route('/updateconsole/<int:id>', methods=['PUT'])
 def update_console(id):
   # conn = None
@@ -89,6 +90,7 @@ def update_console(id):
     if conn is not None:
       conn.close()
 
+### Local routes
 # @app.route('/')
 # def index():
 #   return "Welcome to the API"
