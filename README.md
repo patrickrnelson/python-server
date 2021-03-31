@@ -2,7 +2,7 @@
 
 ## Setup
 
-- Run a postgresql server. 
+- Run a postgresql database. 
 - See the database.sql file to get a database setup using Postico.
 - Install psychopg2 following the instructions in the provided URL.
 - Open a Postman GET request and type `localhost:5000/allconsoles` into the address bar.
